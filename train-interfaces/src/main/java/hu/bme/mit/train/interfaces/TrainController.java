@@ -12,4 +12,5 @@ public interface TrainController {
 
 	void setAcceleration(float acceleration);
 
+	float getAcceleration();
 }
