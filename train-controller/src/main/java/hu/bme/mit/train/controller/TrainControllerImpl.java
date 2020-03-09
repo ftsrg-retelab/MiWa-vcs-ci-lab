@@ -7,6 +7,7 @@ public class TrainControllerImpl implements TrainController {
 	private int step = 0;
 	private int referenceSpeed = 0;
 	private int speedLimit = 0;
+	private float acceleration = 0;
 
 	@Override
 	public void followSpeed() {
@@ -44,6 +45,11 @@ public class TrainControllerImpl implements TrainController {
 	@Override
 	public void setJoystickPosition(int joystickPosition) {
 		this.step = joystickPosition;		
+	}
+
+	@Override
+	public void setAcceleration(float acceleration) {
+		this.acceleration = acceleration;
 	}
 
 }
