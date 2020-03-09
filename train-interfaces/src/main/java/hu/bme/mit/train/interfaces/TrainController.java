@@ -10,6 +10,6 @@ public interface TrainController {
 
 	void setJoystickPosition(int joystickPosition);
 
-	void setAcceleration(double acceleration);
+	void setAcceleration(float acceleration);
 
 }
