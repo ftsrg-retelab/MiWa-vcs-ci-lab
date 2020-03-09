@@ -18,7 +18,7 @@ public class Tachograph {
         this.user = user;
         this.controller = controller;
     }
-    
+
     public void document(){
         Date currentDate = new Date();
         table.put(currentDate, JOYSTICK_COLUMN_NAME, user.getJoystickPosition());
