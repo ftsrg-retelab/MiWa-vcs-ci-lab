@@ -1,6 +1,9 @@
 package hu.bme.mit.train.sensor;
 
+import com.google.common.collect.ArrayTable;
+import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
+import com.google.common.collect.TreeBasedTable;
 import hu.bme.mit.train.interfaces.TrainController;
 import hu.bme.mit.train.interfaces.TrainUser;
 
@@ -10,7 +13,7 @@ import java.util.Date;
 public class Tachograph {
     private static  String JOYSTICK_COLUMN_NAME = "JoyStick";
     private static  String REFERENCE_SPEED_COLUMN_NAME = "RefSpeed";
-    private Table<Date, String, Integer> table;
+    private Table<Date, String, Integer> table = HashBasedTable.create();
     private TrainUser user;
     private TrainController controller;
 
