@@ -9,17 +9,16 @@ import java.util.TimerTask;
 
 public class TrainUserImpl implements TrainUser {
 
-	private TrainController controller;
-	private int joystickPosition;
+    private TrainController controller;
+    private int joystickPosition;
 
-	public TrainUserImpl(TrainController controller) {
-	    this.controller = controller;
-	    Timer t = new Timer();
-	    Random r = new Random();
+    public TrainUserImpl(TrainController controller) {
+        this.controller = controller;
+        Timer t = new Timer();
+        Random r = new Random();
         TimerTask timerTask = new TimerTask() {
             @Override
-            public void run()
-            {
+            public void run(){
                 int ran = r.nextInt(10);
                 int joysickNewPos = ran - 9;
 
@@ -29,27 +28,27 @@ public class TrainUserImpl implements TrainUser {
 
         // After started, wait 3.5s then execute timerTask each second
         t.scheduleAtFixedRate(timerTask, 3500, 1000);
-	}
+    }
 
-	@Override
-	public boolean getAlarmFlag() {
-		return false;
-	}
+    @Override
+    public boolean getAlarmFlag() {
+        return false;
+    }
 
-	@Override
-	public int getJoystickPosition() {
-		return joystickPosition;
-	}
+    @Override
+    public int getJoystickPosition() {
+        return joystickPosition;
+    }
 
-	@Override
-	public void overrideJoystickPosition(int joystickPosition) {
-		this.joystickPosition = joystickPosition;
-		controller.setJoystickPosition(joystickPosition);
-		setAcceleration(joystickPosition / 100f);
-	}
+    @Override
+    public void overrideJoystickPosition(int joystickPosition) {
+        this.joystickPosition = joystickPosition;
+        controller.setJoystickPosition(joystickPosition);
+        setAcceleration(joystickPosition / 100f);
+    }
 
-	private void setAcceleration(float acceleration){
-		controller.setAcceleration(acceleration);
-	}
+    private void setAcceleration(float acceleration){
+        controller.setAcceleration(acceleration);
+    }
 
 }
