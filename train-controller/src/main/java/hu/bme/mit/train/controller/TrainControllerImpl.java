@@ -52,4 +52,9 @@ public class TrainControllerImpl implements TrainController {
 		this.acceleration = acceleration;
 	}
 
+	@Override
+	public float getAcceleration() {
+		return acceleration;
+	}
+
 }
