@@ -27,7 +27,7 @@ public class TrainUserImpl implements TrainUser {
             }
         };
 
-        // After started, wait 3.5s then execute timerTask every second
+        // After started, wait 3.5s then execute timerTask each second
         t.scheduleAtFixedRate(timerTask, 3500, 1000);
 	}
 
