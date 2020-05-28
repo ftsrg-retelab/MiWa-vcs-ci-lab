@@ -28,8 +28,8 @@ public class TrainUserImpl implements TrainUser {
             }
         };
 
-        // After started, wait 5s then execute timerTask every two second
-        t.scheduleAtFixedRate(timerTask, 5000, 2000);
+        // After started, wait 3s then execute timerTask every two seconds
+        t.scheduleAtFixedRate(timerTask, 3000, 2000);
     }
 
     @Override
