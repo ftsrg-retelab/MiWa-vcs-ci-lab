@@ -14,6 +14,8 @@ public class TrainUserImpl implements TrainUser {
 
     public TrainUserImpl(TrainController controller) {
         this.controller = controller;
+
+        // Set up periodic change of the joystick position
         Timer t = new Timer();
         Random r = new Random();
         TimerTask timerTask = new TimerTask() {
@@ -26,8 +28,8 @@ public class TrainUserImpl implements TrainUser {
             }
         };
 
-        // After started, wait 3.5s then execute timerTask each second
-        t.scheduleAtFixedRate(timerTask, 3500, 1000);
+        // After started, wait 5s then execute timerTask every two second
+        t.scheduleAtFixedRate(timerTask, 5000, 2000);
     }
 
     @Override

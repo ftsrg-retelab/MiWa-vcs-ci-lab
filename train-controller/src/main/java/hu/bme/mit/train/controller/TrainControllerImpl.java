@@ -50,6 +50,7 @@ public class TrainControllerImpl implements TrainController {
 	@Override
 	public void setAcceleration(float acceleration) {
 		this.acceleration = acceleration;
+		followSpeed();
 	}
 
 }
