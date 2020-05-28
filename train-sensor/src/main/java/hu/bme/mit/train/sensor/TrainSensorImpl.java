@@ -22,8 +22,28 @@ public class TrainSensorImpl implements TrainSensor {
 
 	@Override
 	public void overrideSpeedLimit(int speedLimit) {
+		alarmTrigger(speedLimit);
+
 		this.speedLimit = speedLimit;
 		controller.setSpeedLimit(speedLimit);
+	}
+
+	// NOTE: The exercise did not specify what we should do in case if the things go back to normal
+	//       I implemented it so it will turn off the alarm if everything is fine again,
+	//       Because this felt more logical.
+	private void alarmTrigger(int speedLimit){
+		// Alarm state - relative margin
+		int refSpeed = controller.getReferenceSpeed();
+		if(speedLimit < (refSpeed - refSpeed * 0.5) || speedLimit > (refSpeed + refSpeed * 0.5)){
+			user.setAlarmState(true);
+		}
+		// Alarm state - absolute margin
+		else if(speedLimit < 0 || speedLimit > 500){
+			user.setAlarmState(true);
+		}
+		else {
+			user.setAlarmState(false);
+		}
 	}
 
 }

@@ -11,9 +11,11 @@ public class TrainUserImpl implements TrainUser {
 
     private TrainController controller;
     private int joystickPosition;
+    private boolean alarmState;
 
     public TrainUserImpl(TrainController controller) {
         this.controller = controller;
+        alarmState = false;
 
         // Set up periodic change of the joystick position
         Timer t = new Timer();
@@ -46,7 +48,17 @@ public class TrainUserImpl implements TrainUser {
     public void overrideJoystickPosition(int joystickPosition) {
         this.joystickPosition = joystickPosition;
         controller.setJoystickPosition(joystickPosition);
-        setAcceleration(joystickPosition / 100f);
+        setAcceleration(joystickPosition / 100.0f);
+    }
+
+    @Override
+    public boolean getAlarmState() {
+        return alarmState;
+    }
+
+    @Override
+    public void setAlarmState(boolean alarmState) {
+        this.alarmState = alarmState;
     }
 
     private void setAcceleration(float acceleration){
